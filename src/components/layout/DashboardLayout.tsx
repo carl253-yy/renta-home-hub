@@ -62,7 +62,7 @@ const DashboardLayout = () => {
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full">
-        <Sidebar defaultCollapsed={false} collapsible>
+        <Sidebar defaultCollapsed={false} collapsible="icon">
           <div className="py-4 flex items-center justify-center">
             <div className={`text-xl font-bold ${collapsed ? 'hidden' : 'block'}`}>
               RentaHub
