@@ -41,31 +41,31 @@ const App = () => (
             {/* Landlord Routes */}
             <Route path="/dashboard/landlord" element={<DashboardLayout />}>
               <Route index element={<LandlordDashboard />} />
-              <Route path="reports" element={<div>Landlord Reports</div>} />
-              <Route path="maintenance" element={<div>Landlord Maintenance</div>} />
-              <Route path="profile" element={<div>Landlord Profile</div>} />
+              <Route path="reports" element={<div className="font-aptos">Landlord Reports</div>} />
+              <Route path="maintenance" element={<div className="font-aptos">Landlord Maintenance</div>} />
+              <Route path="profile" element={<div className="font-aptos">Landlord Profile</div>} />
             </Route>
             
             {/* Tenant Routes */}
             <Route path="/dashboard/tenant" element={<DashboardLayout />}>
               <Route index element={<TenantDashboard />} />
-              <Route path="documents" element={<div>Tenant Documents</div>} />
-              <Route path="maintenance" element={<div>Tenant Maintenance</div>} />
-              <Route path="profile" element={<div>Tenant Profile</div>} />
+              <Route path="documents" element={<div className="font-aptos">Tenant Documents</div>} />
+              <Route path="maintenance" element={<div className="font-aptos">Tenant Maintenance</div>} />
+              <Route path="profile" element={<div className="font-aptos">Tenant Profile</div>} />
             </Route>
             
             {/* Caretaker Routes */}
             <Route path="/dashboard/caretaker" element={<DashboardLayout />}>
               <Route index element={<CaretakerDashboard />} />
-              <Route path="maintenance" element={<div>Caretaker Maintenance</div>} />
-              <Route path="profile" element={<div>Caretaker Profile</div>} />
+              <Route path="maintenance" element={<div className="font-aptos">Caretaker Maintenance</div>} />
+              <Route path="profile" element={<div className="font-aptos">Caretaker Profile</div>} />
             </Route>
             
             {/* House Hunter Routes */}
             <Route path="/dashboard/hunter" element={<DashboardLayout />}>
               <Route index element={<HunterDashboard />} />
-              <Route path="saved" element={<div>Saved Properties</div>} />
-              <Route path="profile" element={<div>Hunter Profile</div>} />
+              <Route path="saved" element={<div className="font-aptos">Saved Properties</div>} />
+              <Route path="profile" element={<div className="font-aptos">Hunter Profile</div>} />
             </Route>
             
             <Route path="*" element={<NotFound />} />

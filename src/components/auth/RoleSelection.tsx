@@ -24,8 +24,8 @@ const RoleCard: React.FC<RoleCardProps> = ({ title, description, icon, role, onC
         <div className="mb-4 p-3 rounded-full bg-primary/10 text-primary">
           {icon}
         </div>
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-muted-foreground text-sm">{description}</p>
+        <h3 className="text-xl font-semibold mb-2 font-aptos">{title}</h3>
+        <p className="text-muted-foreground text-sm font-aptos">{description}</p>
       </CardContent>
     </Card>
   );
@@ -45,8 +45,8 @@ const RoleSelection: React.FC = () => {
       <div className="flex-grow flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 animate-fade-in">
         <div className="w-full max-w-5xl">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-primary mb-4">Welcome to RentaHub</h1>
-            <p className="text-lg text-muted-foreground">Select your role to get started</p>
+            <h1 className="text-4xl font-bold text-primary mb-4 font-aptos">Welcome to QwetuLink</h1>
+            <p className="text-lg text-muted-foreground font-aptos">Select your role to get started</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Slider } from '@/components/ui/slider';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { triggerTabClick } from '@/components/ui/helpers';
 
 const mockListings = [
   {
@@ -79,17 +80,21 @@ const HunterDashboard: React.FC = () => {
      listing.location.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 
+  const navigateToBrowse = () => {
+    triggerTabClick('[data-value="all"]');
+  };
+
   return (
     <div className="animate-fade-in space-y-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Find Your Perfect Home</h1>
-        <p className="text-muted-foreground">Browse available rental properties</p>
+        <h1 className="text-3xl font-bold tracking-tight font-aptos">Find Your Perfect Home</h1>
+        <p className="text-muted-foreground font-aptos">Browse available rental properties</p>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>Search Filters</CardTitle>
-          <CardDescription>Narrow down your search</CardDescription>
+          <CardTitle className="font-aptos">Search Filters</CardTitle>
+          <CardDescription className="font-aptos">Narrow down your search</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
@@ -97,13 +102,13 @@ const HunterDashboard: React.FC = () => {
               placeholder="Search by location or property name"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="mb-4"
+              className="mb-4 font-aptos"
             />
           </div>
           <div className="space-y-2">
             <div className="flex justify-between">
-              <p className="text-sm font-medium">Price Range</p>
-              <p className="text-sm text-muted-foreground">${priceRange[0]} - ${priceRange[1]}</p>
+              <p className="text-sm font-medium font-aptos">Price Range</p>
+              <p className="text-sm text-muted-foreground font-aptos">${priceRange[0]} - ${priceRange[1]}</p>
             </div>
             <Slider
               defaultValue={[500, 2500]}
@@ -115,12 +120,12 @@ const HunterDashboard: React.FC = () => {
             />
           </div>
           <div className="flex flex-wrap gap-2">
-            <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground">1 Bedroom</Badge>
-            <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground">2 Bedrooms</Badge>
-            <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground">3+ Bedrooms</Badge>
-            <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground">Parking</Badge>
-            <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground">Pets Allowed</Badge>
-            <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground">Furnished</Badge>
+            <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground font-aptos">1 Bedroom</Badge>
+            <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground font-aptos">2 Bedrooms</Badge>
+            <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground font-aptos">3+ Bedrooms</Badge>
+            <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground font-aptos">Parking</Badge>
+            <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground font-aptos">Pets Allowed</Badge>
+            <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground font-aptos">Furnished</Badge>
           </div>
         </CardContent>
       </Card>
@@ -128,11 +133,11 @@ const HunterDashboard: React.FC = () => {
       <Tabs defaultValue="all" className="w-full">
         <div className="flex justify-between items-center mb-4">
           <TabsList>
-            <TabsTrigger value="all">All Properties</TabsTrigger>
-            <TabsTrigger value="featured">Featured</TabsTrigger>
-            <TabsTrigger value="favorites">Favorites ({favorites.length})</TabsTrigger>
+            <TabsTrigger value="all" className="font-aptos">All Properties</TabsTrigger>
+            <TabsTrigger value="featured" className="font-aptos">Featured</TabsTrigger>
+            <TabsTrigger value="favorites" className="font-aptos">Favorites ({favorites.length})</TabsTrigger>
           </TabsList>
-          <p className="text-sm text-muted-foreground">{filteredListings.length} properties found</p>
+          <p className="text-sm text-muted-foreground font-aptos">{filteredListings.length} properties found</p>
         </div>
 
         <TabsContent value="all">
@@ -164,11 +169,11 @@ const HunterDashboard: React.FC = () => {
                 </div>
                 <CardContent className="p-4">
                   <div className="flex justify-between mb-2">
-                    <h3 className="font-semibold">{listing.title}</h3>
-                    <span className="text-primary font-bold">${listing.price}/mo</span>
+                    <h3 className="font-semibold font-aptos">{listing.title}</h3>
+                    <span className="text-primary font-bold font-aptos">${listing.price}/mo</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-3">{listing.location}</p>
-                  <div className="flex justify-between text-sm">
+                  <p className="text-sm text-muted-foreground mb-3 font-aptos">{listing.location}</p>
+                  <div className="flex justify-between text-sm font-aptos">
                     <span>{listing.bedrooms} {listing.bedrooms === 1 ? 'Bed' : 'Beds'}</span>
                     <span>{listing.bathrooms} {listing.bathrooms === 1 ? 'Bath' : 'Baths'}</span>
                     <span>{listing.area} sq ft</span>
@@ -176,8 +181,8 @@ const HunterDashboard: React.FC = () => {
                 </CardContent>
                 <CardFooter className="bg-muted/50 p-4">
                   <div className="flex space-x-2 w-full">
-                    <Button variant="outline" className="flex-1">Schedule Visit</Button>
-                    <Button className="flex-1">View Details</Button>
+                    <Button variant="outline" className="flex-1 font-aptos">Schedule Visit</Button>
+                    <Button className="flex-1 font-aptos">View Details</Button>
                   </div>
                 </CardFooter>
               </Card>
@@ -211,15 +216,15 @@ const HunterDashboard: React.FC = () => {
                       </svg>
                     )}
                   </Button>
-                  <Badge className="absolute top-2 left-2 bg-primary">Featured</Badge>
+                  <Badge className="absolute top-2 left-2 bg-primary font-aptos">Featured</Badge>
                 </div>
                 <CardContent className="p-4">
                   <div className="flex justify-between mb-2">
-                    <h3 className="font-semibold">{listing.title}</h3>
-                    <span className="text-primary font-bold">${listing.price}/mo</span>
+                    <h3 className="font-semibold font-aptos">{listing.title}</h3>
+                    <span className="text-primary font-bold font-aptos">${listing.price}/mo</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-3">{listing.location}</p>
-                  <div className="flex justify-between text-sm">
+                  <p className="text-sm text-muted-foreground mb-3 font-aptos">{listing.location}</p>
+                  <div className="flex justify-between text-sm font-aptos">
                     <span>{listing.bedrooms} {listing.bedrooms === 1 ? 'Bed' : 'Beds'}</span>
                     <span>{listing.bathrooms} {listing.bathrooms === 1 ? 'Bath' : 'Baths'}</span>
                     <span>{listing.area} sq ft</span>
@@ -227,8 +232,8 @@ const HunterDashboard: React.FC = () => {
                 </CardContent>
                 <CardFooter className="bg-muted/50 p-4">
                   <div className="flex space-x-2 w-full">
-                    <Button variant="outline" className="flex-1">Schedule Visit</Button>
-                    <Button className="flex-1">View Details</Button>
+                    <Button variant="outline" className="flex-1 font-aptos">Schedule Visit</Button>
+                    <Button className="flex-1 font-aptos">View Details</Button>
                   </div>
                 </CardFooter>
               </Card>
@@ -239,9 +244,9 @@ const HunterDashboard: React.FC = () => {
         <TabsContent value="favorites">
           {favorites.length === 0 ? (
             <div className="text-center py-12">
-              <h3 className="text-xl font-semibold mb-2">No favorites yet</h3>
-              <p className="text-muted-foreground mb-4">Click the heart icon on properties you like to add them to favorites</p>
-              <Button onClick={() => document.querySelector('[data-value="all"]')?.click()}>Browse Properties</Button>
+              <h3 className="text-xl font-semibold mb-2 font-aptos">No favorites yet</h3>
+              <p className="text-muted-foreground mb-4 font-aptos">Click the heart icon on properties you like to add them to favorites</p>
+              <Button onClick={navigateToBrowse} className="font-aptos">Browse Properties</Button>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -266,11 +271,11 @@ const HunterDashboard: React.FC = () => {
                   </div>
                   <CardContent className="p-4">
                     <div className="flex justify-between mb-2">
-                      <h3 className="font-semibold">{listing.title}</h3>
-                      <span className="text-primary font-bold">${listing.price}/mo</span>
+                      <h3 className="font-semibold font-aptos">{listing.title}</h3>
+                      <span className="text-primary font-bold font-aptos">${listing.price}/mo</span>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-3">{listing.location}</p>
-                    <div className="flex justify-between text-sm">
+                    <p className="text-sm text-muted-foreground mb-3 font-aptos">{listing.location}</p>
+                    <div className="flex justify-between text-sm font-aptos">
                       <span>{listing.bedrooms} {listing.bedrooms === 1 ? 'Bed' : 'Beds'}</span>
                       <span>{listing.bathrooms} {listing.bathrooms === 1 ? 'Bath' : 'Baths'}</span>
                       <span>{listing.area} sq ft</span>
@@ -278,8 +283,8 @@ const HunterDashboard: React.FC = () => {
                   </CardContent>
                   <CardFooter className="bg-muted/50 p-4">
                     <div className="flex space-x-2 w-full">
-                      <Button variant="outline" className="flex-1">Schedule Visit</Button>
-                      <Button className="flex-1">View Details</Button>
+                      <Button variant="outline" className="flex-1 font-aptos">Schedule Visit</Button>
+                      <Button className="flex-1 font-aptos">View Details</Button>
                     </div>
                   </CardFooter>
                 </Card>

@@ -62,10 +62,10 @@ const DashboardLayout = () => {
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full">
-        <Sidebar defaultCollapsed={false} collapsible="icon">
+        <Sidebar className="border-r border-border bg-sidebar" collapsible="icon">
           <div className="py-4 flex items-center justify-center">
-            <div className={`text-xl font-bold ${collapsed ? 'hidden' : 'block'}`}>
-              RentaHub
+            <div className={`text-xl font-bold font-aptos ${collapsed ? 'hidden' : 'block'}`}>
+              QwetuLink
             </div>
             <div className={`${!collapsed ? 'hidden' : 'block'}`}>
               <svg
@@ -91,7 +91,7 @@ const DashboardLayout = () => {
                 <Button
                   key={item.path}
                   variant="ghost"
-                  className="w-full justify-start"
+                  className="w-full justify-start font-aptos"
                   onClick={() => navigate(item.path)}
                 >
                   {item.icon}
@@ -111,19 +111,19 @@ const DashboardLayout = () => {
                       {user?.name?.charAt(0) || 'U'}
                     </AvatarFallback>
                   </Avatar>
-                  <span className={`${collapsed ? 'hidden' : 'block'}`}>
+                  <span className={`font-aptos ${collapsed ? 'hidden' : 'block'}`}>
                     {user?.name || 'User'}
                   </span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuLabel className="font-aptos">My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => navigate(`/dashboard/${role}/profile`)}>
+                <DropdownMenuItem onClick={() => navigate(`/dashboard/${role}/profile`)} className="font-aptos">
                   <Settings className="mr-2 h-4 w-4" />
                   <span>Settings</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={handleLogout}>
+                <DropdownMenuItem onClick={handleLogout} className="font-aptos">
                   <LogOut className="mr-2 h-4 w-4" />
                   <span>Logout</span>
                 </DropdownMenuItem>
@@ -132,7 +132,7 @@ const DashboardLayout = () => {
           </SidebarFooter>
         </Sidebar>
 
-        <main className="flex-1">
+        <main className="flex-1 bg-background">
           <div className="p-4 md:p-6">
             <Outlet />
           </div>

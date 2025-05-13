@@ -21,6 +21,7 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Urbanist', 'sans-serif'],
+				aptos: ['Aptos', 'Urbanist', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
