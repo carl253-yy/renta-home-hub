@@ -1,12 +1,8 @@
 
 import { Button } from '@/components/ui/button';
+import { Home, FileText, Wrench, MessageSquare, Heart, BarChart3 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-
-interface NavItem {
-  icon: JSX.Element;
-  label: string;
-  path: string;
-}
+import { NavItem } from './NavigationConfig';
 
 interface MobileNavigationProps {
   navItems: NavItem[];
@@ -22,17 +18,17 @@ export const MobileNavigation = ({ navItems }: MobileNavigationProps) => {
   };
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-border">
-      <div className="flex justify-around items-center p-2">
-        {navItems.slice(0, 4).map((item) => (
+    <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-border z-10">
+      <div className="flex justify-around items-center px-1">
+        {navItems.map((item) => (
           <Button
             key={item.path}
             variant="ghost"
-            className={`flex flex-col py-2 ${isActive(item.path) ? 'text-primary' : 'text-muted-foreground'}`}
+            className={`flex flex-col py-2 px-1 ${isActive(item.path) ? 'text-primary' : 'text-muted-foreground'}`}
             onClick={() => navigate(item.path)}
           >
             <div>{item.icon}</div>
-            <span className="text-xs mt-1 font-aptos">{item.label}</span>
+            <span className="text-xs mt-1 font-aptos truncate">{item.label}</span>
           </Button>
         ))}
       </div>
